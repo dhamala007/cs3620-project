@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 header("Access-Control-Allow-Origin: *");
 
 {"books-read":[
@@ -10,3 +11,10 @@ header("Access-Control-Allow-Origin: *");
 ?>
 
 
+=======
+header("Access-Control-Allow-Origin: *")
+
+
+{"books-read":[{"Title":"The Hobbit","Author":"J. R. R. Tolkien"},{"Title":"The Body", "Author":"Bill Bryson"}]}
+?>
+>>>>>>> 60d6fa77aeca9852d6bc3a2a34c1710719818819
