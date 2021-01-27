@@ -1,11 +1,24 @@
 <?php
-header("Access-Control-Allow-Origin: *");
+$servername = "cs-3260.database.windows.net";
+$username = "cs-3260@cs3620sql";
+$password = "Loveyoudad95";
+$dbname = "CS3260";
 
-echo '{"books-read":[
-    {"Title":"Harry Potter","Author":"J K Rowling"},
-    {"Title":"Game of thrones","Author":"George R. R. Martin"},
-    {"Title":"The Lord of the Rings","Author":"J R R Tolkein"}
-    ]
-}';
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "INSERT INTO Shows (ShowID, ShowName)
+VALUES (1, 'Freinds')";
+
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
 ?>
-
