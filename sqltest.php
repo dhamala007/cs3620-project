@@ -1,6 +1,6 @@
 <?php
 $servername = "cs-3260.database.windows.net";
-$username = "cs-3260@cs-3260sql";
+$username = "cs-3260@cs-3260";
 $password = "Loveyoudad95";
 $dbname = "cs-3260";
 
