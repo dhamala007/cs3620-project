@@ -2,7 +2,7 @@
 $servername = "cs-3260.database.windows.net";
 $username = "cs-3260@cs3620sql";
 $password = "Loveyoudad95";
-$dbname = "CS3260";
+$dbname = "cs-3260";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
