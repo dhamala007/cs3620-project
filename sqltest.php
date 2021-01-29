@@ -1,8 +1,10 @@
 <?php
-$servername = "cs-3260.database.windows.net";
-$username = "cs-3260@cs3620sql";
-$password = "*********";
-$dbname = "cs-3260";
+
+session_start();
+$servername = "aazuresql.mysql.database.azure.com";
+$username = (isset($_SESSION["SQLUSER"]) ? $_SESSION["SQLUSER"] : $_ENV['SQLUSER']);
+$password = (isset($_SESSION["SQLPW"]) ? $_SESSION["SQLPW"] : $_ENV['SQLPW']);
+$dbname = "Shows";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
