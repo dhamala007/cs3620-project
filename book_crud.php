@@ -40,7 +40,7 @@ if ($result->num_rows > 0) {
 // sql to delete a record
 $sql2 = "DELETE FROM MyGuests WHERE id=1";
 
-if ($conn->query($sql) === TRUE) {
+if ($conn->query($sql2) === TRUE) {
   echo "Record deleted successfully";
 } else {
   echo "Error deleting record: " . $conn->error;
