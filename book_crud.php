@@ -5,7 +5,7 @@ session_start();
 $servername = "aazuresql.mysql.database.azure.com";
 $username = (isset($_SESSION["SQLUSER"]) ? $_SESSION["SQLUSER"] : $_ENV['SQLUSER']);
 $password = (isset($_SESSION["SQLPW"]) ? $_SESSION["SQLPW"] : $_ENV['SQLPW']);
-$dbname = "cs-3620";
+$dbname = "cs-3260";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -40,7 +40,7 @@ if ($result->num_rows > 0) {
 // sql to delete a record
 $sql2 = "DELETE FROM MyGuests WHERE id=1";
 
-if ($conn->query($sql2) === TRUE) {
+if ($conn->query($sql) === TRUE) {
   echo "Record deleted successfully";
 } else {
   echo "Error deleting record: " . $conn->error;
