@@ -1,0 +1,81 @@
+<h1 id="header1"></h1>
+
+
+<script>
+    function Username(Username)
+    {
+        
+        fetch('http://localhost:8080/project1/usersusername.php?Username=' + Username)
+        .then(response => response.json())
+        .then(
+            function (data){
+                console.log('data:', data);
+                document.getElementById("firstName").innerHTML = data.first_name;
+                document.getElementById("lastName").innerHTML = data.last_name;
+                document.getElementById("userName").innerHTML = data.username;
+            }
+        ).catch((error) => {
+            alert("that user doenot exists")
+                document.getElementById("firstName").innerHTML = "";
+                document.getElementById("lastName").innerHTML = "";
+                document.getElementById("userName").innerHTML = "";
+        });
+       
+    }
+    function Firstname(Firstname)
+    {
+
+        fetch('http://localhost:8080/project1/usersfirstname.php?Firstname=' + Firstname)
+        .then(response => response.json())
+        .then(
+            function (data){
+                console.log('data:', data);
+                document.getElementById("firstName").innerHTML = data.first_name;
+                document.getElementById("lastName").innerHTML = data.last_name;
+                document.getElementById("userName").innerHTML = data.username;
+            }
+        ).catch((error) => {
+            alert("that user doenot exists")
+                document.getElementById("firstName").innerHTML = "";
+                document.getElementById("lastName").innerHTML = "";
+                document.getElementById("userName").innerHTML = "";
+        });
+       
+    }
+    function Lastname(Lastname)
+    {
+
+        fetch('http://localhost:8080/project1/userslastname.php?Lastname=' + Lastname)
+        .then(response => response.json())
+        .then(
+            function (data){
+                console.log('data:', data);
+                document.getElementById("firstName").innerHTML = data.first_name;
+                document.getElementById("lastName").innerHTML = data.last_name;
+                document.getElementById("userName").innerHTML = data.username;
+            }
+        ).catch((error) => {
+            alert("that user doenot exists")
+                document.getElementById("firstName").innerHTML = "";
+                document.getElementById("lastName").innerHTML = "";
+                document.getElementById("userName").innerHTML = "";
+        });
+       
+    }
+
+</script>
+
+
+username: <input type="text" id="Username" />
+<input type="button" value="Get through Username" onclick="Username(document.getElementById('Username').value)"/>
+</br>
+firstname: <input type="text" id="Firstname" />
+<input type="button" value="Get through Firstname" onclick="Firstname(document.getElementById('Firstname').value)"/>
+</br>
+lastname: <input type="text" id="Lastname" />
+<input type="button" value="Get through Lastname" onclick="Lastname(document.getElementById('Lastname').value)"/>
+</br>
+
+<div id="firstName"> FIRSTNAME</div>
+<div id="lastName"> LASTNAME</div>
+<div id="userName"> USERNAME</div>
