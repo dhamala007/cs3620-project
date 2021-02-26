@@ -72,6 +72,12 @@ class User implements \jsonSerializable {
     $userDAO = new userDAO();
     $userDAO->deleteUser($username);
   }
+
+  function checkLogin($username, $password){
+    $userDAO = new userDAO();
+    return $userDAO->checkLogin($username, $password);
+  }
+  
   public function jsonSerialize()
   {
     $vars = get_object_vars($this);
