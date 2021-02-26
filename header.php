@@ -8,6 +8,6 @@ session_start();
 ?>
 
 
-<h1>
-This is the header!
+<h1 style="color: Green; border-style: dotted solid; text-align:center;">
+Welcome to my page!!!
 </h1>

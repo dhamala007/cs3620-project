@@ -5,6 +5,6 @@ error_reporting(E_ALL);
 
 ?>
 
-<h1>
-This is the footer!!
+<h1 style="color: lightblue; text-align:center;">
+CS3620
 </h1>
