@@ -106,26 +106,25 @@ class UserDAO {
     return $user_id;
   }
 
-  function createUser($user)
-  {
+  function createUser($user){
     require_once('./user/connection.php');
-    
-    $sql = "INSERT INTO `cs-3260`.user
-    (
-    `Username`,
+
+    // prepare and bind
+    $stmt = $conn->prepare("INSERT INTO `cs-3260`.user (`Username`,
     `Password`,
     `Firstname`,
-    `lastname`)
-    VALUES
-    ('" . $user->getUsername() . "',
-    '" . $user->getPassword() . "',
-    '" . $user->getFirstName() . "',
-    '" . $user->getLastName() . "'
-    );";
-    $result = $conn->query($sql);
+    `lastname`) VALUES (?, ?, ?, ?)");
 
+    $un = $user->getUsername();
+    $pw = $user->getPassword();
+    $fn = $user->getFirstName();
+    $ln = $user->getLastName();
+
+    $stmt->bind_param("ssss", $un, $pw, $fn, $ln);
+    $stmt->execute();
+
+    $stmt->close();
     $conn->close();
-    echo "User was inserted";
   }
 
   function deleteUser($un)
