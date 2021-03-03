@@ -11,7 +11,7 @@
    
 
     $session = new session();
-    $login_result = $session->login($_POST["username"], $_POST["password"]);
+    $login_result = $session->login($_POST["Username"], $_POST["Password"]);
     if(!$login_result){
         header("Location: login.html?error=true");
         exit();
