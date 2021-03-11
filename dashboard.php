@@ -1,4 +1,12 @@
-<?php require_once('header.php'); ?>
+<?php require_once('header.php'); 
+require_once('sessioncheck.php');
+?>
+
+<a href="logout.php"> LogOut</a>
+
+<form method="POST" action="create_movie.php" >
+    <input type="submit" value="Create Movie" />
+</form>
 
     <!-- Begin page content -->
     <main role="main" class="container">
