@@ -29,6 +29,27 @@
     
     return $movies;
     }
+
+    function createMovie($movie){
+      require_once('./user/connection.php');
+  
+      // prepare and bind
+      $stmt = $conn->prepare("INSERT INTO `cs-3260`.movie (`movie_id`,
+      `movie_name`,
+      `movie_description`,
+      `movie_rating`) VALUES (?, ?, ?, ?)");
+  
+      $un = $movie->getmovieId();
+      $pw = $movie->getmoviename();
+      $fn = $movie->getmoviedescription();
+      $ln = $movie->getmovierating();
+  
+      $stmt->bind_param("ssss", $un, $pw, $fn, $ln);
+      $stmt->execute();
+  
+      $stmt->close();
+      $conn->close();
+    }
 }
 
 ?>

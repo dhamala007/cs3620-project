@@ -43,6 +43,11 @@ public function getMyMovies()
     $movieDAO = new movieDAO();
     return $movieDAO->getAllMovies();
 }
+
+function createMovie(){
+  $movieDAO = new movieDAO();
+  $movieDAO->createMovie($this);
+}
  
 public function jsonSerialize()
 {
