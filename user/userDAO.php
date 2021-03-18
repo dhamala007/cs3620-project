@@ -1,5 +1,6 @@
 <?php
-class UserDAO {
+  class UserDAO 
+  {
   function getUser($user){
     require_once('./user/connection.php');
     
@@ -90,20 +91,23 @@ class UserDAO {
   function checkLogin($passedinusername, $passedinpassword){
     require_once('./user/connection.php');
     $user_id = 0;
-    $sql = "SELECT *FROM `cs-3260`.user WHERE Username = '" . $passedinusername . "' AND Password = '" . hash("sha256", trim($passedinpassword)) . "'";
+    $sql = "SELECT user_id FROM `cs-3260`.user WHERE Username = '" . $passedinusername . "' AND `Password` = '" . hash("sha256", trim($passedinpassword)) . "'";
  
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
         $user_id = $row["user_id"];
+        
       }
     }
     else {
         echo "0 results";
     }
     $conn->close();
+    
     return $user_id;
+    
   }
 
   function createUser($user){
@@ -137,5 +141,5 @@ class UserDAO {
     $conn->close();
     echo "User was deleted";
   }
-}
+ }
 ?>

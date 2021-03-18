@@ -31,17 +31,31 @@ class movie implements \jsonSerializable {
   }
   
 
-function getmovierating() {
+  function getmovierating() {
   return $this->movie_rating;
-}
-function setmovierating($movie_rating){
+  }
+  function setmovierating($movie_rating){
   $this->movie_rating = $movie_rating;
-}
+  }
 
-public function getMyMovies()
+  function getuserid() {
+    return $this->user_id;
+    }
+    function setuserid($user_id){
+    $this->user_id = $user_id;
+    }
+  
+
+public function getMyMovies($user_id)
 {
     $movieDAO = new movieDAO();
-    return $movieDAO->getAllMovies();
+    return $movieDAO->getMoviesByUserId($user_id);
+}
+
+public function deleteMovie($user_id, $movie_id)
+{
+    $movieDAO = new movieDAO();
+    return $movieDAO->deletemovie($user_id, $movie_id);
 }
 
 function createMovie(){

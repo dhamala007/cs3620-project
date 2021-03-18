@@ -63,6 +63,8 @@ class User implements \jsonSerializable {
   }
 
   function createUser(){
+    $message = "wrong answer";
+    echo "<script type='text/javascript'>alert('$message');</script>";
     $userDAO = new userDAO();
     $userDAO->createUser($this);
   }
